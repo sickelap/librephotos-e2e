@@ -1,0 +1,48 @@
+{
+  "name": "librephotos-e2e",
+  "version": "0.1.0",
+  "description": "E2E test suite for librephotos",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^14.0.0",
+    "@cucumber/messages": "^20.0.0",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "cypress": "^11.2.0",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^12.1.0",
+    "prettier": "^2.8.0",
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "postinstall": "husky install",
+    "test": "cypress run"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npx prettier --write",
+      "npx eslint --cache --quiet"
+    ],
+    "*.{json,md}": [
+      "npx prettier --write"
+    ]
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/e2e/step_definitions/**/*.ts"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  }
+}
