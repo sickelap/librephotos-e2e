@@ -40,3 +40,10 @@ Run tests while developing with preview and hot reloading
 ```
 npx cypress open
 ```
+
+## Tear down environment
+
+```
+cd docker
+docker-compomse down -v
+```
